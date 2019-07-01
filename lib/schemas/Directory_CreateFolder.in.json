@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode CreateFolder",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name des Verzeichnisses",
+                    "type": "string"
+                },
+                "parentId": {
+                    "format": "int32",
+                    "description": "Id des Verzeichnisses, in dem dieses angelegt werden soll",
+                    "type": "integer"
+                },
+                "typeId": {
+                    "format": "int32",
+                    "description": "Typ des anzulegenen Verzeichnisses (Optional, wenn ModuleId angegeben wurde)",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        20
+                    ],
+                    "type": "integer"
+                },
+                "moduleId": {
+                    "format": "int32",
+                    "description": "Modul, in dem das Verzeichnis erstellt werden soll (Optional, wenn TypeId angegeben wurde)",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

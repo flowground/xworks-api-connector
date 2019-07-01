@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "moduleId": {
+            "required": true,
+            "type": "string"
+        },
+        "clientId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

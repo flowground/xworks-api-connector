@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "messageId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "filter": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                4,
+                8,
+                16,
+                24,
+                25,
+                32,
+                64,
+                89
+            ]
+        },
+        "index": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "zoom": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

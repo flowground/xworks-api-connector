@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode DeleteEmailAddress",
+            "type": "object",
+            "properties": {
+                "addressList": {
+                    "description": "Liste mit den Emailadressen, welche gelöscht werden sollen",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

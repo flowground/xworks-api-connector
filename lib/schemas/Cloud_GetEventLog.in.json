@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "objectId": {
+            "required": true,
+            "type": "string"
+        },
+        "startValue": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "isSortDesc": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

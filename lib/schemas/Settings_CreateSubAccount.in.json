@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode CreateMailbox",
+            "type": "object",
+            "properties": {
+                "firstname": {
+                    "description": "Vorname",
+                    "type": "string"
+                },
+                "lastname": {
+                    "description": "Nachname",
+                    "type": "string"
+                },
+                "emailaddress": {
+                    "description": "Emailadresse",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Passwort",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

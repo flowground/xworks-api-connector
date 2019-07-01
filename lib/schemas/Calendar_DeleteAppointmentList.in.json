@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode DeleteAppointmentList",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

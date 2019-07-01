@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "fileId": {
+            "required": true,
+            "type": "string"
+        },
+        "appId": {
+            "required": false,
+            "type": "string"
+        },
+        "devId": {
+            "required": false,
+            "type": "string"
+        },
+        "token": {
+            "required": false,
+            "type": "string"
+        },
+        "langId": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

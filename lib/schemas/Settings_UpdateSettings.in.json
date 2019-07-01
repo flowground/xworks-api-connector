@@ -1,0 +1,109 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den vollständigen Informationen der zu aktualisierenden EInstellungen",
+            "type": "object",
+            "properties": {
+                "settings": {
+                    "description": "Alle Informationen zu den Einstellungen",
+                    "type": "object",
+                    "properties": {
+                        "folderId": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "calendar": {
+                            "description": "Einstellungsmöglichkeiten an der Kalenderansicht",
+                            "type": "object",
+                            "properties": {
+                                "dayEnd": {
+                                    "format": "int32",
+                                    "description": "Stunde am Tag, wann der Tag im Kalender enden soll (Tages- und Wochenansicht)",
+                                    "type": "integer"
+                                },
+                                "dayStart": {
+                                    "format": "int32",
+                                    "description": "Stunde am Tag, wann der Tag im Kalender beginnen soll (Tages- und Wochenansicht)",
+                                    "type": "integer"
+                                },
+                                "view": {
+                                    "format": "int32",
+                                    "description": "Ausgewählte Voreinstellung der Kalenderansicht",
+                                    "enum": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "email": {
+                            "description": "Einstellungsmöglichkeiten für den Versand von Emails",
+                            "type": "object",
+                            "properties": {
+                                "emailAddress": {
+                                    "description": "Standardabsender einer Email (Hauptemailadresse oder authentifizierte Emailadresse)",
+                                    "type": "string"
+                                },
+                                "onlyPlainText": {
+                                    "description": "Flag, ob die Emails nur als Text angezeigt werden sollen",
+                                    "type": "boolean"
+                                },
+                                "signatureId": {
+                                    "format": "int32",
+                                    "description": "Id der Signatur, mit der neue Emails versendet werden sollen",
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "faxTemplate": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "logoutTime": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "nextAfterDelete": {
+                            "type": "boolean"
+                        },
+                        "page": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "pageSize": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "requiredSSL": {
+                            "type": "boolean"
+                        },
+                        "showTipOnLogin": {
+                            "type": "boolean"
+                        },
+                        "propertyList": {
+                            "description": "Erweiterte Einstellungsmöglichkeiten",
+                            "type": "array",
+                            "items": {
+                                "description": "Stellt Informationen zu erweiterten Einstellungsmöglichkeiten bereit",
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "description": "Name der Eigenschaft",
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "description": "Wert der Eigenschaft",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

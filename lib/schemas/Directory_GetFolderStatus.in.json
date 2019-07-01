@@ -1,0 +1,93 @@
+{
+    "type": "object",
+    "properties": {
+        "moduleId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ]
+        },
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode GetFolderStatus",
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "description": "Einschränkung in der Anzahl der Nachrichten für das Antwortobjekt",
+                    "type": "object",
+                    "properties": {
+                        "offset": {
+                            "format": "int32",
+                            "description": "Startindex, ab dem die Nachrichten ausgegeben werden sollen",
+                            "type": "integer"
+                        },
+                        "count": {
+                            "format": "int32",
+                            "description": "Die Anzahl der auszugebenen Nachrichten",
+                            "type": "integer"
+                        },
+                        "range": {
+                            "description": "Zeitliche Eingrenzung bei der Ermittlung der Nachrichten",
+                            "type": "object",
+                            "properties": {
+                                "num": {
+                                    "format": "int32",
+                                    "description": "Nummerischer Wert, welche die Zeitangabe festlegt",
+                                    "type": "integer"
+                                },
+                                "type": {
+                                    "format": "int32",
+                                    "description": "Legt fest, in welchem Zeitabschnitt der nummerische Wert interpretiert werden soll",
+                                    "enum": [
+                                        0,
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "sort": {
+                            "format": "int32",
+                            "description": "Sortierreihenfolge der Nachrichten",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                },
+                "idList": {
+                    "description": "Auflistung der benötigten Werte eine Abfrage",
+                    "type": "array",
+                    "items": {
+                        "description": "Stellt Basisinformationen für diverse Anfragen bereit",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id eines Objektes",
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "description": "Prüfsumme eines Objektes. Dies wird nicht bei jeder Anfrage benötigt",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

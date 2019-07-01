@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen des zu aktualisierenden POP3-Sammeldienstes",
+            "type": "object",
+            "properties": {
+                "account": {
+                    "description": "Informationen des zu ändernden POP3-Sammeldienstes",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "description": "Id der Einstellung",
+                            "type": "integer"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem die abgerufenen Nachrichten gespeichert werden sollen",
+                            "type": "integer"
+                        },
+                        "host": {
+                            "description": "Host-Adresse, von dem die Nachrichten abgerufen werden sollen",
+                            "type": "string"
+                        },
+                        "userName": {
+                            "description": "Benutzername",
+                            "type": "string"
+                        },
+                        "password": {
+                            "description": "Passwort",
+                            "type": "string"
+                        },
+                        "onlyNew": {
+                            "description": "Flag, ob nur neue Nachrichten abgerufen werden sollen",
+                            "type": "boolean"
+                        },
+                        "deleteAfterReceive": {
+                            "description": "Flag, ob die Nachrichten nach dem abrufen vom Host gelöscht werden sollen",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

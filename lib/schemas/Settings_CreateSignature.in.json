@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu erstellenden Signatur",
+            "type": "object",
+            "properties": {
+                "siganture": {
+                    "description": "Informationen der zu erstellenden Signatur",
+                    "type": "object",
+                    "properties": {
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem sich die Signatur befindet",
+                            "type": "integer"
+                        },
+                        "subject": {
+                            "description": "Betreff der Signatur",
+                            "type": "string"
+                        },
+                        "text": {
+                            "description": "Text der Signatur",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

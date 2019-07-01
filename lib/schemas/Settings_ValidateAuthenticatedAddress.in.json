@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "addressId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "key": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

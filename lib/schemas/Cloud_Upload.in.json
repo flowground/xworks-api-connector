@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "folderId": {
+            "required": true,
+            "type": "string"
+        },
+        "fileName": {
+            "required": false,
+            "type": "string"
+        },
+        "fileId": {
+            "required": false,
+            "type": "string"
+        },
+        "created": {
+            "required": false,
+            "type": "string"
+        },
+        "modified": {
+            "required": false,
+            "type": "string"
+        },
+        "option": {
+            "required": false,
+            "type": "string"
+        },
+        "crcFlags": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Anfrageobjekt für die Methode DeleteWidgetList",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "description": "Liste mit der Id und dem Typ der zu löschenden Widgets",
+                    "type": "array",
+                    "items": {
+                        "description": "Containerobjekt mit der Id und dem Typ eines Widgets",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id des Widgets",
+                                "type": "integer"
+                            },
+                            "type": {
+                                "format": "int32",
+                                "description": "Typ des Widgets",
+                                "enum": [
+                                    4,
+                                    14
+                                ],
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

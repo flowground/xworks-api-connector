@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode UpdateBookmark",
+            "type": "object",
+            "properties": {
+                "bookmark": {
+                    "description": "Informationen zum zu ändernden Lesezeichen",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "description": "Id des Lesezeichens",
+                            "type": "integer"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem sich das Lesezeichen befindet",
+                            "type": "integer"
+                        },
+                        "modified": {
+                            "description": "Datum der letzten Änderung",
+                            "type": "string"
+                        },
+                        "rating": {
+                            "format": "int32",
+                            "description": "Die Bewertung des Lesezeichens (0-5)",
+                            "type": "integer"
+                        },
+                        "subject": {
+                            "description": "Titel",
+                            "type": "string"
+                        },
+                        "url": {
+                            "description": "Url",
+                            "type": "string"
+                        },
+                        "checksum": {
+                            "description": "Prüfsumme",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

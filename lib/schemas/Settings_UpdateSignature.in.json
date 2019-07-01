@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu aktualisierenden Sigantur",
+            "type": "object",
+            "properties": {
+                "signature": {
+                    "description": "Informationen zu der zu aktualisierenden Signatur",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "description": "Id der Signatur",
+                            "type": "integer"
+                        },
+                        "modified": {
+                            "description": "Datum, wann die Signatur geändert wurde",
+                            "type": "string"
+                        },
+                        "checksum": {
+                            "description": "Prüfsumme",
+                            "type": "string"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem sich die Signatur befindet",
+                            "type": "integer"
+                        },
+                        "subject": {
+                            "description": "Betreff der Signatur",
+                            "type": "string"
+                        },
+                        "text": {
+                            "description": "Text der Signatur",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

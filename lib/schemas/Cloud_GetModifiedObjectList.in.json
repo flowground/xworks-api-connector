@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "parentId": {
+                    "type": "string"
+                },
+                "since": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "count": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "offset": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "includeInfected": {
+                    "type": "boolean"
+                },
+                "sort": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        },
+                        "order": {
+                            "format": "int32",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                },
+                "crcFlags": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        4,
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        2147483647
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

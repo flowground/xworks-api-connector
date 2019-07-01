@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Request Object um sich für Notifications wieder zu deregistrieren",
+            "type": "object",
+            "properties": {
+                "notificationToken": {
+                    "description": "UID der jeweiligen Verbindungsart",
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "description": "UID der jeweiligen Verbindungsart",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

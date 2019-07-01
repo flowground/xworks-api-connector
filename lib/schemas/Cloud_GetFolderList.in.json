@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "parentId": {
+            "required": false,
+            "type": "string"
+        },
+        "showArchiveFolders": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

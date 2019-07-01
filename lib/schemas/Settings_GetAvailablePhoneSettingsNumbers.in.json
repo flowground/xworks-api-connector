@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "count": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

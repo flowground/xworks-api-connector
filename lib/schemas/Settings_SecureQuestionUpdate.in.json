@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu aktualisierenden Sicherheitsfrage",
+            "type": "object",
+            "properties": {
+                "question": {
+                    "description": "Sicherheitsfrage",
+                    "type": "string"
+                },
+                "answer": {
+                    "description": "antwort auf die Sicherheitsfrage",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

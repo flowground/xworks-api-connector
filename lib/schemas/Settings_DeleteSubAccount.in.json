@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode DeleteMailbox",
+            "type": "object",
+            "properties": {
+                "emailAddress": {
+                    "description": "Emailadresse des zu löschenden Postfaches",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "description": "Anzuzeigender Name",
+                            "type": "string"
+                        },
+                        "address": {
+                            "description": "Emailadresse",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

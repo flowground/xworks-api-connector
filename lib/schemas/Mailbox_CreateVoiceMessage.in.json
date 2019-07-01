@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Beinhaltet die Informationen über ein SMS (Short Message), welches versendet werden soll",
+            "type": "object",
+            "properties": {
+                "sender": {
+                    "description": "Der Absender",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "Der eigentliche Nachrichtentext als Klartext",
+                    "type": "string"
+                },
+                "recipientList": {
+                    "description": "Alle Empfänger der Nachricht",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subject": {
+                    "description": "Betreff der Nachricht",
+                    "type": "string"
+                },
+                "action": {
+                    "format": "int32",
+                    "description": "Aktion, wie die Nachricht versendet werden soll",
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "type": "integer"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Id der Nachricht, welche weitergeleitet, oder auf die geantwortet werden soll",
+                    "type": "integer"
+                },
+                "sendDate": {
+                    "description": "Zeitpunkt, an dem die Nachricht die Nachricht versendet werden soll",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

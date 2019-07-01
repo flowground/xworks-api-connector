@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode GetToken",
+            "type": "object",
+            "properties": {
+                "credentials": {
+                    "description": "Anmeldedaten des Benutzers",
+                    "type": "object",
+                    "properties": {
+                        "user": {
+                            "description": "Benutzername",
+                            "type": "string"
+                        },
+                        "pass": {
+                            "description": "Passwort",
+                            "type": "string"
+                        }
+                    }
+                },
+                "device": {
+                    "description": "Informationen zum verwendeten Clientgerät",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "description": "Identifikation des Gerätes (Token ist nur in Verbindung mit dieser Id gültig)",
+                            "type": "string"
+                        },
+                        "info": {
+                            "description": "Weitere Informationen - Betriebssystem zum Beispiel",
+                            "type": "string"
+                        },
+                        "validDays": {
+                            "format": "int32",
+                            "description": "Gewünschte Gültigkeitsdauer des Tokens für das Gerät",
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

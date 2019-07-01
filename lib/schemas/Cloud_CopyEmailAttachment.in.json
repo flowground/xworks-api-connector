@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "folderId": {
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "indexList": {
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "overwriteOption": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

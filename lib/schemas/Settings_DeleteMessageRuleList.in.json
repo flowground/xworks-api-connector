@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Ids der zu löschenden Nachrichtenregeln",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "description": "Auflistung mit den Ids der zu löschenden Nachrichtenregeln",
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

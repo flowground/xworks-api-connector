@@ -1,0 +1,100 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen einer zu erstellenden Nachrichtenregel, welche Nachrichten weiterleitet",
+            "type": "object",
+            "properties": {
+                "rule": {
+                    "description": "Informationen zu der Nachrichtenregel, welche Nachrichten weiterleitet",
+                    "type": "object",
+                    "properties": {
+                        "addresstype": {
+                            "format": "int32",
+                            "description": "Typ des authentifizierten Kontaktes",
+                            "enum": [
+                                0,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7
+                            ],
+                            "type": "integer"
+                        },
+                        "addressId": {
+                            "format": "int32",
+                            "description": "Id des authentifizierten Kontaktes (AuthenticatedAddress)",
+                            "type": "integer"
+                        },
+                        "name": {
+                            "description": "Name der Regel",
+                            "type": "string"
+                        },
+                        "active": {
+                            "description": "Flag, ob die Regel aktiv ist",
+                            "type": "boolean"
+                        },
+                        "patternList": {
+                            "description": "Geltungsbereich der Nachrichtenregel",
+                            "type": "array",
+                            "items": {
+                                "description": "Legt den Geltungsbereich einer Nachrichtenregel fest",
+                                "type": "object",
+                                "properties": {
+                                    "caseSensitive": {
+                                        "description": "Flag, ob bei der Prüfung Groß- und Kleinschreibung beachtet werden soll",
+                                        "type": "boolean"
+                                    },
+                                    "compareString": {
+                                        "description": "Die zu prüfenden Zeichenfolge",
+                                        "type": "string"
+                                    },
+                                    "operator": {
+                                        "format": "int32",
+                                        "description": "Legt fest, wie die Prüfung durchzuführen ist",
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4
+                                        ],
+                                        "type": "integer"
+                                    },
+                                    "part": {
+                                        "format": "int32",
+                                        "description": "Legt fest, welcher Teil einer Nachricht zu prüfen ist",
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6
+                                        ],
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        "rank": {
+                            "format": "int32",
+                            "description": "Position der Nachrichtenregel",
+                            "type": "integer"
+                        },
+                        "terminated": {
+                            "description": "Flag, ob nach dieser Regel keine weiteren Nachrichtenregeln angewendet werden sollen",
+                            "type": "boolean"
+                        },
+                        "visible": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

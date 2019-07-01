@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "addressType": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    }
+}

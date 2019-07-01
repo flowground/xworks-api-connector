@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu erstellenden authentifizierten Adresse für die Methode CreateAuthenticatedAddress",
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "Informationen der zu erstellenden authentifizierten Adresse",
+                    "type": "object",
+                    "properties": {
+                        "subject": {
+                            "description": "Name (Kurzbeschreibung) der Adresse",
+                            "type": "string"
+                        },
+                        "address": {
+                            "description": "Eigentliche Adresse (Email, Telefonnummer, etc)",
+                            "type": "string"
+                        },
+                        "type": {
+                            "format": "int32",
+                            "description": "Typ der Adresse",
+                            "enum": [
+                                0,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

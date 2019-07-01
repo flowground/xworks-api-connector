@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit dem Filter für die zu ermittelden Logbucheinträge",
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "description": "Informationen, wie und wonach die Logbucheinträge gefiltert oder sortiert werden sollen",
+                    "type": "object",
+                    "properties": {
+                        "entryType": {
+                            "format": "int32",
+                            "description": "Typ der Einträge",
+                            "type": "integer"
+                        },
+                        "category": {
+                            "format": "int32",
+                            "description": "Kategorie der Einträge",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                            ],
+                            "type": "integer"
+                        },
+                        "priority": {
+                            "format": "int32",
+                            "description": "Priorität der Einträge",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3
+                            ],
+                            "type": "integer"
+                        },
+                        "dateFrom": {
+                            "description": "Mindestdatum der Einträge",
+                            "type": "string"
+                        },
+                        "sortvalue": {
+                            "format": "int32",
+                            "description": "Legt fest, wonach die Einträge sortiert werden sollen",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        },
+                        "sortType": {
+                            "format": "int32",
+                            "description": "Sortierreihenfolge der Einträge",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "folderIdList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "recursive": {
+                    "type": "boolean"
+                },
+                "includeInfected": {
+                    "type": "boolean"
+                },
+                "since": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "crcFlags": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        4,
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        2147483647
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

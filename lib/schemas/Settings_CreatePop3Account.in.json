@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen des zu erstellenden POP3-Sammeldienstes",
+            "type": "object",
+            "properties": {
+                "account": {
+                    "description": "Informationen zu dem zu erstellenden POP3-Sammeldienst",
+                    "type": "object",
+                    "properties": {
+                        "host": {
+                            "description": "Host-Adresse, von dem die Nachrichten abgerufen werden sollen",
+                            "type": "string"
+                        },
+                        "userName": {
+                            "description": "Benutzername",
+                            "type": "string"
+                        },
+                        "password": {
+                            "description": "Passwort",
+                            "type": "string"
+                        },
+                        "onlyNew": {
+                            "description": "Flag, ob nur neue Nachrichten abgerufen werden sollen",
+                            "type": "boolean"
+                        },
+                        "deleteAfterReceive": {
+                            "description": "Flag, ob die Nachrichten nach dem abrufen vom Host gelöscht werden sollen",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

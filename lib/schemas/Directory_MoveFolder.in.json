@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode MoveFolder",
+            "type": "object",
+            "properties": {
+                "folderId": {
+                    "format": "int32",
+                    "description": "Id des Verzeichnisses, welches verschoben werden soll",
+                    "type": "integer"
+                },
+                "destFolderId": {
+                    "format": "int32",
+                    "description": "Id des Zielverzeichnisses, in dass das Verzeichnis verschoben werden soll",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

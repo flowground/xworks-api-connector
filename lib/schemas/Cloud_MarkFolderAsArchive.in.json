@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "retentionPeriod": {
+                    "format": "int64",
+                    "type": "integer"
+                },
+                "isArchive": {
+                    "type": "boolean"
+                },
+                "firstMonthFinancialYear": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "crcFlags": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        4,
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        2147483647
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

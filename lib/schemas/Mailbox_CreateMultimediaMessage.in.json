@@ -1,0 +1,109 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Beinhaltet die Informationen über eine MMS (Multimedia Message), welches versendet werden soll",
+            "type": "object",
+            "properties": {
+                "message": {
+                    "description": "Der eigentliche Nachrichtentext als Klartext",
+                    "type": "string"
+                },
+                "add": {
+                    "description": "Die Anhänge (Bild / Video) für die MMS",
+                    "type": "array",
+                    "items": {
+                        "description": "Informationen über den Anhang einer Nachricht",
+                        "type": "object",
+                        "properties": {
+                            "uid": {
+                                "description": "Uid einer Datei",
+                                "type": "string"
+                            },
+                            "index": {
+                                "format": "int32",
+                                "description": "Index des Anhangs",
+                                "type": "integer"
+                            },
+                            "filename": {
+                                "description": "Dateiname",
+                                "type": "string"
+                            },
+                            "body": {
+                                "format": "byte",
+                                "description": "Inhalt des Anhangs",
+                                "type": "string"
+                            },
+                            "contentType": {
+                                "description": "Content-Type des Anhangs",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "remove": {
+                    "description": "Attachments, die aus der Nachricht bei einer Weiterleitung entfernt werden sollen",
+                    "type": "array",
+                    "items": {
+                        "description": "Informationen über den Anhang einer Nachricht",
+                        "type": "object",
+                        "properties": {
+                            "uid": {
+                                "description": "Uid einer Datei",
+                                "type": "string"
+                            },
+                            "index": {
+                                "format": "int32",
+                                "description": "Index des Anhangs",
+                                "type": "integer"
+                            },
+                            "filename": {
+                                "description": "Dateiname",
+                                "type": "string"
+                            },
+                            "body": {
+                                "format": "byte",
+                                "description": "Inhalt des Anhangs",
+                                "type": "string"
+                            },
+                            "contentType": {
+                                "description": "Content-Type des Anhangs",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "recipientList": {
+                    "description": "Alle Empfänger der Nachricht",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subject": {
+                    "description": "Betreff der Nachricht",
+                    "type": "string"
+                },
+                "action": {
+                    "format": "int32",
+                    "description": "Aktion, wie die Nachricht versendet werden soll",
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "type": "integer"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Id der Nachricht, welche weitergeleitet, oder auf die geantwortet werden soll",
+                    "type": "integer"
+                },
+                "sendDate": {
+                    "description": "Zeitpunkt, an dem die Nachricht die Nachricht versendet werden soll",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

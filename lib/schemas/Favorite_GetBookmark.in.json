@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "bookmarkId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

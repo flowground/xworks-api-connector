@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "appVersion": {
+                    "description": "Version der Client-Anwendung",
+                    "type": "string"
+                },
+                "appOs": {
+                    "description": "Betriebssystem der Client-Anwendung",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

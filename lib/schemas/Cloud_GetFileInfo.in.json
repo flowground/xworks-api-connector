@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "crcFlags": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

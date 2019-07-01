@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Anfrage DeleteMessage",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "description": "Auflistung aller Nachrichten-Ids, welche gelöscht werden sollen",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "typeId": {
+                                "format": "int32",
+                                "description": "Typ der Nachricht",
+                                "enum": [
+                                    30,
+                                    31,
+                                    32,
+                                    33,
+                                    34,
+                                    35,
+                                    36
+                                ],
+                                "type": "integer"
+                            },
+                            "id": {
+                                "format": "int32",
+                                "description": "Id eines Objektes",
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "description": "Prüfsumme eines Objektes. Dies wird nicht bei jeder Anfrage benötigt",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "mode": {
+                    "format": "int32",
+                    "description": "Modus, wie die Nachrichten zu löschen sind",
+                    "enum": [
+                        0,
+                        1
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

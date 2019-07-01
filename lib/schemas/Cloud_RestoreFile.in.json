@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "overwriteOption": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "type": "integer"
+                },
+                "crcFlags": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        4,
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        2147483647
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

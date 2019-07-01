@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Anfrageobjekt für die Methode MarkAsFavorite",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "description": "Liste mit den Ids der zu markierenden Notizen",
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "isFavorite": {
+                    "description": "Flag, ob die Widgets als Favoriten markiert werden sollen",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

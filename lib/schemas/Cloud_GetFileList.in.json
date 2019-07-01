@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "folderId": {
+                    "type": "string"
+                },
+                "count": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "offset": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sort": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string"
+                        },
+                        "order": {
+                            "format": "int32",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                },
+                "idList": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "checksum": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "filterBy": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        4,
+                        8,
+                        16,
+                        32,
+                        64
+                    ],
+                    "type": "integer"
+                },
+                "includeInfected": {
+                    "type": "boolean"
+                },
+                "offline": {
+                    "type": "boolean"
+                },
+                "isExpiryDateExpired": {
+                    "type": "boolean"
+                },
+                "crcFlags": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        4,
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        2147483647
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

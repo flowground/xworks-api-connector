@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "folderId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "imageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2
+            ]
+        },
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode GetContactList",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "description": "Auflistung der benötigten Werte eine Abfrage",
+                    "type": "array",
+                    "items": {
+                        "description": "Stellt Basisinformationen für diverse Anfragen bereit",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id eines Objektes",
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "description": "Prüfsumme eines Objektes. Dies wird nicht bei jeder Anfrage benötigt",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

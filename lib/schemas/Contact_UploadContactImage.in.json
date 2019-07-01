@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt zum Aktualisieren eines Kontaktbildes mittels der Methode UploadContactImage",
+            "type": "object",
+            "properties": {
+                "contactId": {
+                    "format": "int32",
+                    "description": "Id des Kontaktes, dessen Bild ermittelt werden soll",
+                    "type": "integer"
+                },
+                "image": {
+                    "description": "Name und Daten des hochzulandenen Bildes eines Kontaktes",
+                    "type": "object",
+                    "properties": {
+                        "data": {
+                            "format": "byte",
+                            "description": "Daten der Datei",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name der Datei",
+                            "type": "string"
+                        },
+                        "contentType": {
+                            "description": "Typ des Inhaltes im Feld \"Data\" (zum Beispiel \"application\")",
+                            "type": "string"
+                        },
+                        "contentSubType": {
+                            "description": "Untertyp des Inhaltes im Feld \"Data\" (zum Beispiel \"octetstream\")",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

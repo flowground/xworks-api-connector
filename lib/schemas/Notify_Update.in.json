@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Request Object um sich für Notifications zu registrieren",
+            "type": "object",
+            "properties": {
+                "endpoint": {
+                    "description": "MD5 Hash des Endpunktes welcher später angesprochen werden muss",
+                    "type": "string"
+                },
+                "scopes": {
+                    "description": "Liste aller Notification Typen über die man informiert werden will",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "notificationToken": {
+                    "description": "UID der jeweiligen Verbindungsart",
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "description": "UID der jeweiligen Verbindungsart",
+                    "type": "string"
+                },
+                "types": {
+                    "description": "Liste aller Notification Typen über die man informiert werden will",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "host": {
+                    "description": "MD5 Hash des Endpunktes welcher später angesprochen werden muss",
+                    "type": "object",
+                    "properties": {
+                        "hostId": {
+                            "description": "HostId",
+                            "type": "string"
+                        }
+                    }
+                },
+                "deviceType": {
+                    "description": "DeviceType",
+                    "type": "string"
+                },
+                "friendlyName": {
+                    "description": "DeviceType",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

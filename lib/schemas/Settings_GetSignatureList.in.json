@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen (Id, Checksum) der schpn am Client vorhandenen Signaturen",
+            "type": "object",
+            "properties": {
+                "folderId": {
+                    "format": "int32",
+                    "description": "Id des Verzeichnisses aus dem die Siganturen ermittelt werden sollen",
+                    "type": "integer"
+                },
+                "idList": {
+                    "description": "Auflistung der benötigten Werte eine Abfrage",
+                    "type": "array",
+                    "items": {
+                        "description": "Stellt Basisinformationen für diverse Anfragen bereit",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id eines Objektes",
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "description": "Prüfsumme eines Objektes. Dies wird nicht bei jeder Anfrage benötigt",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

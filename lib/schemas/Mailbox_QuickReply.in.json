@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Datenobjekt für die Methode QuickReply für eine Schnellantwort auf eine Nachricht",
+            "type": "object",
+            "properties": {
+                "messageId": {
+                    "format": "int32",
+                    "description": "Id der Nachricht, auf die geantwortet werden soll",
+                    "type": "integer"
+                },
+                "replyMessage": {
+                    "description": "Nachricht, welche als Antwort gesendet werden soll",
+                    "type": "string"
+                },
+                "type": {
+                    "format": "int32",
+                    "description": "Nachrichtentyp der Antwort",
+                    "enum": [
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

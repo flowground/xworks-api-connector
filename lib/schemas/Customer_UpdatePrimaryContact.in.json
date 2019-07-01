@@ -1,0 +1,221 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode UpdateContact",
+            "type": "object",
+            "properties": {
+                "contact": {
+                    "description": "Informationen zu dem zu aktualisierendem Kontakt",
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "description": "Allgemeine Informationen",
+                            "type": "object",
+                            "properties": {
+                                "birthday": {
+                                    "description": "Geburtstag",
+                                    "type": "string"
+                                },
+                                "company": {
+                                    "description": "Name der Firma",
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "format": "int32",
+                                    "description": "Id des Kontaktes",
+                                    "type": "integer"
+                                },
+                                "firstname": {
+                                    "description": "Vorname",
+                                    "type": "string"
+                                },
+                                "folderId": {
+                                    "format": "int32",
+                                    "description": "Id des Verzeichnisses, in dem der Kontakt sich befindet",
+                                    "type": "integer"
+                                },
+                                "imageUrl": {
+                                    "description": "Url des Bildes, welches an den Kontakt gehängt wurde (als Thumbnail)",
+                                    "type": "string"
+                                },
+                                "lastname": {
+                                    "description": "Nachname",
+                                    "type": "string"
+                                },
+                                "salutation": {
+                                    "description": "Anrede",
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "format": "int32",
+                                    "description": "Information, ob es sich um eine Person oder einer Firma handelt",
+                                    "enum": [
+                                        0,
+                                        1
+                                    ],
+                                    "type": "integer"
+                                },
+                                "statusSpecified": {
+                                    "description": "Flag, ob der Status des Kontaktes festgelegt wurde",
+                                    "type": "boolean"
+                                },
+                                "title": {
+                                    "description": "Titel",
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "format": "int32",
+                                    "description": "Typ des Kontaktes",
+                                    "enum": [
+                                        0,
+                                        1
+                                    ],
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "business": {
+                            "description": "Informationen zur Geschäftsadresse",
+                            "type": "object",
+                            "properties": {
+                                "city": {
+                                    "description": "Ort",
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "description": "Land",
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "description": "Emailadresse",
+                                    "type": "string"
+                                },
+                                "fax": {
+                                    "description": "Faxnummer",
+                                    "type": "string"
+                                },
+                                "mobile": {
+                                    "description": "Mobile Telefonnummer",
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "description": "Telefonnummer",
+                                    "type": "string"
+                                },
+                                "postalcode": {
+                                    "description": "Postleitzahl",
+                                    "type": "string"
+                                },
+                                "region": {
+                                    "description": "Region",
+                                    "type": "string"
+                                },
+                                "street": {
+                                    "description": "Straße und Hausnummer",
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "description": "Url zu einer eventuell vorhandenen Webseite",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "home": {
+                            "description": "Informationen zur Privatadresse",
+                            "type": "object",
+                            "properties": {
+                                "city": {
+                                    "description": "Ort",
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "description": "Land",
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "description": "Emailadresse",
+                                    "type": "string"
+                                },
+                                "fax": {
+                                    "description": "Faxnummer",
+                                    "type": "string"
+                                },
+                                "mobile": {
+                                    "description": "Mobile Telefonnummer",
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "description": "Telefonnummer",
+                                    "type": "string"
+                                },
+                                "postalcode": {
+                                    "description": "Postleitzahl",
+                                    "type": "string"
+                                },
+                                "region": {
+                                    "description": "Region",
+                                    "type": "string"
+                                },
+                                "street": {
+                                    "description": "Straße und Hausnummer",
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "description": "Url zu einer eventuell vorhandenen Webseite",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "note": {
+                            "description": "Notiz zu dem Kontakt",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "format": "int32",
+                                    "description": "Id der Notiz",
+                                    "type": "integer"
+                                },
+                                "note": {
+                                    "description": "Eigentliche Notiz",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "modified": {
+                            "description": "Datum der letzten Änderung am Kontakt",
+                            "type": "string"
+                        },
+                        "checksum": {
+                            "description": "Prüfsumme des Kontaktes",
+                            "type": "string"
+                        },
+                        "image": {
+                            "description": "Daten des Kontaktbildes bei Generierung und Änderung eines Kontaktes",
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "format": "byte",
+                                    "description": "Daten der Datei",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Name der Datei",
+                                    "type": "string"
+                                },
+                                "contentType": {
+                                    "description": "Typ des Inhaltes im Feld \"Data\" (zum Beispiel \"application\")",
+                                    "type": "string"
+                                },
+                                "contentSubType": {
+                                    "description": "Untertyp des Inhaltes im Feld \"Data\" (zum Beispiel \"octetstream\")",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

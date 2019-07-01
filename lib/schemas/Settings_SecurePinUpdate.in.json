@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen zum zu ändernen Sicherheits-PIN",
+            "type": "object",
+            "properties": {
+                "oldPin": {
+                    "description": "Alter Sicherheits-PIN",
+                    "type": "string"
+                },
+                "newPin": {
+                    "description": "Neuer Sicherheits-PIN",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

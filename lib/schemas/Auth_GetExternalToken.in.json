@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode GetExternalToken",
+            "type": "object",
+            "properties": {
+                "account": {
+                    "description": "Id des Teamraum",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "description": "Id",
+                            "type": "integer"
+                        },
+                        "emailAddress": {
+                            "description": "EmailAddress",
+                            "type": "string"
+                        }
+                    }
+                },
+                "device": {
+                    "description": "Informationen zum verwendeten Clientgerät",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "description": "Identifikation des Gerätes (Token ist nur in Verbindung mit dieser Id gültig)",
+                            "type": "string"
+                        },
+                        "info": {
+                            "description": "Weitere Informationen - Betriebssystem zum Beispiel",
+                            "type": "string"
+                        },
+                        "validDays": {
+                            "format": "int32",
+                            "description": "Gewünschte Gültigkeitsdauer des Tokens für das Gerät",
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

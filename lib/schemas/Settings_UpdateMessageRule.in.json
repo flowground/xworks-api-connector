@@ -1,0 +1,419 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu aktualisierenden Nachrichtenregel",
+            "type": "object",
+            "properties": {
+                "rule": {
+                    "description": "Vollständige Informationen der zu aktualisierenden Nachrichtenregel",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "description": "Die Id einer Nachrichtenregel",
+                            "type": "integer"
+                        },
+                        "checksum": {
+                            "description": "Die Prüfsumme einer Nachrichtenregel",
+                            "type": "string"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem die Nachricht verschoben werden soll (-1 = Nachricht nicht verschieben)",
+                            "type": "integer"
+                        },
+                        "forward": {
+                            "description": "Informationen über den Kontakt (AuthenticatedAddress), an dem die Nachricht weitergeleitet werden soll",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                },
+                                "addresstype": {
+                                    "format": "int32",
+                                    "description": "Typ des authentifizierten Kontaktes",
+                                    "enum": [
+                                        0,
+                                        2,
+                                        3,
+                                        4,
+                                        5,
+                                        6,
+                                        7
+                                    ],
+                                    "type": "integer"
+                                },
+                                "addressId": {
+                                    "format": "int32",
+                                    "description": "Id des authentifizierten Kontaktes (AuthenticatedAddress)",
+                                    "type": "integer"
+                                },
+                                "bodyLength": {
+                                    "format": "int32",
+                                    "description": "Länge, auf die der Body der Nachricht gekürzt werden soll",
+                                    "type": "integer"
+                                },
+                                "bodyPatternList": {
+                                    "description": "Einstellungen der Nacrichtenteile, welche bei einer Benachrichtigung ausgegeben werden sollen",
+                                    "type": "array",
+                                    "items": {
+                                        "description": "Beschreibt, wie die einzelnen Nachrichtenteile bei einer Benachrichtigung bearbeitet werden sollen",
+                                        "type": "object",
+                                        "properties": {
+                                            "end": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtenteil abgeschnitten werden soll",
+                                                "type": "string"
+                                            },
+                                            "length": {
+                                                "format": "int32",
+                                                "description": "Geünschte maximale Länge des Nachrichtenteils",
+                                                "type": "integer"
+                                            },
+                                            "messagePart": {
+                                                "format": "int32",
+                                                "description": "Teil der Nachricht, auf den dieses Pattern angewendet werden soll",
+                                                "enum": [
+                                                    0,
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    4,
+                                                    5,
+                                                    6
+                                                ],
+                                                "type": "integer"
+                                            },
+                                            "prefix": {
+                                                "description": "Einzufügender Text vor dem Nachrichtentext",
+                                                "type": "string"
+                                            },
+                                            "start": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtentext anfangen soll",
+                                                "type": "string"
+                                            },
+                                            "suffix": {
+                                                "description": "Einzufügender Text nach dem Nachrichtentext",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "dayMask": {
+                                    "format": "int32",
+                                    "description": "Tage in der Woche, wann eine Benachrichtigung gesendet werden soll",
+                                    "enum": [
+                                        0,
+                                        2,
+                                        4,
+                                        8,
+                                        16,
+                                        32,
+                                        64,
+                                        128
+                                    ],
+                                    "type": "integer"
+                                },
+                                "endTime": {
+                                    "format": "int32",
+                                    "description": "Stunde am Tag, bis wann eine Benachrichtung gesendet werden soll (Format: z.Bsp: 800 für 08:00 Uhr)",
+                                    "type": "integer"
+                                },
+                                "startTime": {
+                                    "format": "int32",
+                                    "description": "Stunde am Tag, ab wann eine Benachrichtung gesendet werden soll (Format: z.Bsp: 800 für 08:00 Uhr)",
+                                    "type": "integer"
+                                },
+                                "subjectLength": {
+                                    "format": "int32",
+                                    "description": "Länge, auf die der Betreff der Nachricht bei einer Benachrichtigung gekürzt werden soll",
+                                    "type": "integer"
+                                },
+                                "subjectPatternList": {
+                                    "description": "Einstellungen für den Betreff der Nachricht",
+                                    "type": "array",
+                                    "items": {
+                                        "description": "Beschreibt, wie die einzelnen Nachrichtenteile bei einer Benachrichtigung bearbeitet werden sollen",
+                                        "type": "object",
+                                        "properties": {
+                                            "end": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtenteil abgeschnitten werden soll",
+                                                "type": "string"
+                                            },
+                                            "length": {
+                                                "format": "int32",
+                                                "description": "Geünschte maximale Länge des Nachrichtenteils",
+                                                "type": "integer"
+                                            },
+                                            "messagePart": {
+                                                "format": "int32",
+                                                "description": "Teil der Nachricht, auf den dieses Pattern angewendet werden soll",
+                                                "enum": [
+                                                    0,
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    4,
+                                                    5,
+                                                    6
+                                                ],
+                                                "type": "integer"
+                                            },
+                                            "prefix": {
+                                                "description": "Einzufügender Text vor dem Nachrichtentext",
+                                                "type": "string"
+                                            },
+                                            "start": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtentext anfangen soll",
+                                                "type": "string"
+                                            },
+                                            "suffix": {
+                                                "description": "Einzufügender Text nach dem Nachrichtentext",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "notification": {
+                            "description": "Informationen über den Kontakt (AuthenticatedAddress), an dem eine Benachrichtigung versendet werden soll",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                },
+                                "addresstype": {
+                                    "format": "int32",
+                                    "description": "Typ des authentifizierten Kontaktes",
+                                    "enum": [
+                                        0,
+                                        2,
+                                        3,
+                                        4,
+                                        5,
+                                        6,
+                                        7
+                                    ],
+                                    "type": "integer"
+                                },
+                                "addressId": {
+                                    "format": "int32",
+                                    "description": "Id des authentifizierten Kontaktes (AuthenticatedAddress)",
+                                    "type": "integer"
+                                },
+                                "bodyLength": {
+                                    "format": "int32",
+                                    "description": "Länge, auf die der Body der Nachricht gekürzt werden soll",
+                                    "type": "integer"
+                                },
+                                "bodyPatternList": {
+                                    "description": "Einstellungen der Nacrichtenteile, welche bei einer Benachrichtigung ausgegeben werden sollen",
+                                    "type": "array",
+                                    "items": {
+                                        "description": "Beschreibt, wie die einzelnen Nachrichtenteile bei einer Benachrichtigung bearbeitet werden sollen",
+                                        "type": "object",
+                                        "properties": {
+                                            "end": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtenteil abgeschnitten werden soll",
+                                                "type": "string"
+                                            },
+                                            "length": {
+                                                "format": "int32",
+                                                "description": "Geünschte maximale Länge des Nachrichtenteils",
+                                                "type": "integer"
+                                            },
+                                            "messagePart": {
+                                                "format": "int32",
+                                                "description": "Teil der Nachricht, auf den dieses Pattern angewendet werden soll",
+                                                "enum": [
+                                                    0,
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    4,
+                                                    5,
+                                                    6
+                                                ],
+                                                "type": "integer"
+                                            },
+                                            "prefix": {
+                                                "description": "Einzufügender Text vor dem Nachrichtentext",
+                                                "type": "string"
+                                            },
+                                            "start": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtentext anfangen soll",
+                                                "type": "string"
+                                            },
+                                            "suffix": {
+                                                "description": "Einzufügender Text nach dem Nachrichtentext",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "dayMask": {
+                                    "format": "int32",
+                                    "description": "Tage in der Woche, wann eine Benachrichtigung gesendet werden soll",
+                                    "enum": [
+                                        0,
+                                        2,
+                                        4,
+                                        8,
+                                        16,
+                                        32,
+                                        64,
+                                        128
+                                    ],
+                                    "type": "integer"
+                                },
+                                "endTime": {
+                                    "format": "int32",
+                                    "description": "Stunde am Tag, bis wann eine Benachrichtung gesendet werden soll (Format: z.Bsp: 800 für 08:00 Uhr)",
+                                    "type": "integer"
+                                },
+                                "startTime": {
+                                    "format": "int32",
+                                    "description": "Stunde am Tag, ab wann eine Benachrichtung gesendet werden soll (Format: z.Bsp: 800 für 08:00 Uhr)",
+                                    "type": "integer"
+                                },
+                                "subjectLength": {
+                                    "format": "int32",
+                                    "description": "Länge, auf die der Betreff der Nachricht bei einer Benachrichtigung gekürzt werden soll",
+                                    "type": "integer"
+                                },
+                                "subjectPatternList": {
+                                    "description": "Einstellungen für den Betreff der Nachricht",
+                                    "type": "array",
+                                    "items": {
+                                        "description": "Beschreibt, wie die einzelnen Nachrichtenteile bei einer Benachrichtigung bearbeitet werden sollen",
+                                        "type": "object",
+                                        "properties": {
+                                            "end": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtenteil abgeschnitten werden soll",
+                                                "type": "string"
+                                            },
+                                            "length": {
+                                                "format": "int32",
+                                                "description": "Geünschte maximale Länge des Nachrichtenteils",
+                                                "type": "integer"
+                                            },
+                                            "messagePart": {
+                                                "format": "int32",
+                                                "description": "Teil der Nachricht, auf den dieses Pattern angewendet werden soll",
+                                                "enum": [
+                                                    0,
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    4,
+                                                    5,
+                                                    6
+                                                ],
+                                                "type": "integer"
+                                            },
+                                            "prefix": {
+                                                "description": "Einzufügender Text vor dem Nachrichtentext",
+                                                "type": "string"
+                                            },
+                                            "start": {
+                                                "description": "Index des Zeichens, bei dem der Nachrichtentext anfangen soll",
+                                                "type": "string"
+                                            },
+                                            "suffix": {
+                                                "description": "Einzufügender Text nach dem Nachrichtentext",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "type": {
+                            "format": "int32",
+                            "description": "Typ der Nachrichtenregel",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ],
+                            "type": "integer"
+                        },
+                        "universal": {
+                            "type": "boolean"
+                        },
+                        "delete": {
+                            "type": "boolean"
+                        },
+                        "name": {
+                            "description": "Name der Regel",
+                            "type": "string"
+                        },
+                        "active": {
+                            "description": "Flag, ob die Regel aktiv ist",
+                            "type": "boolean"
+                        },
+                        "patternList": {
+                            "description": "Geltungsbereich der Nachrichtenregel",
+                            "type": "array",
+                            "items": {
+                                "description": "Legt den Geltungsbereich einer Nachrichtenregel fest",
+                                "type": "object",
+                                "properties": {
+                                    "caseSensitive": {
+                                        "description": "Flag, ob bei der Prüfung Groß- und Kleinschreibung beachtet werden soll",
+                                        "type": "boolean"
+                                    },
+                                    "compareString": {
+                                        "description": "Die zu prüfenden Zeichenfolge",
+                                        "type": "string"
+                                    },
+                                    "operator": {
+                                        "format": "int32",
+                                        "description": "Legt fest, wie die Prüfung durchzuführen ist",
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4
+                                        ],
+                                        "type": "integer"
+                                    },
+                                    "part": {
+                                        "format": "int32",
+                                        "description": "Legt fest, welcher Teil einer Nachricht zu prüfen ist",
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6
+                                        ],
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        "rank": {
+                            "format": "int32",
+                            "description": "Position der Nachrichtenregel",
+                            "type": "integer"
+                        },
+                        "terminated": {
+                            "description": "Flag, ob nach dieser Regel keine weiteren Nachrichtenregeln angewendet werden sollen",
+                            "type": "boolean"
+                        },
+                        "visible": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

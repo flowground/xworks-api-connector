@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "addressId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

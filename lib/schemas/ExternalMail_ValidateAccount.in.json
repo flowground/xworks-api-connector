@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Holds all data of an external mail service (EMS) account",
+            "required": [
+                "name",
+                "email",
+                "imapHost",
+                "imapSecurity",
+                "smtpHost",
+                "smtpSecurity"
+            ],
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "description": "The account id",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "The user's display name",
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Account email, used for IMAP/SMTP login/auth and as identifier",
+                    "maxLength": 254,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Account password, used for IMAP/SMTP login/auth",
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "imapHost": {
+                    "description": "IMAP server hostname/IP address",
+                    "maxLength": 253,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "imapPort": {
+                    "format": "int32",
+                    "description": "IMAP port",
+                    "maximum": 65536,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "imapUser": {
+                    "description": "Username used for IMAP login\r\nIf not set, the value of {Mediabeam.ExternalMailService.Types.ExternalMailAccount.Email} will be used",
+                    "maxLength": 64,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "imapPassword": {
+                    "description": "Password used for IMAP login\r\nIf not set, the value of {Mediabeam.ExternalMailService.Types.ExternalMailAccount.Password} will be used",
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "imapSecurity": {
+                    "format": "int32",
+                    "description": "Specifies the IMAP security type that will be used for IMAP auth",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "integer"
+                },
+                "smtpHost": {
+                    "description": "SMTP server hostname/IP address",
+                    "maxLength": 253,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "smtpPort": {
+                    "format": "int32",
+                    "description": "SMTP port",
+                    "maximum": 65536,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "smtpUser": {
+                    "description": "Username used for SMTP login\r\nIf not set, the value of {Mediabeam.ExternalMailService.Types.ExternalMailAccount.Email} will be used",
+                    "maxLength": 64,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "smtpPassword": {
+                    "description": "Password used for SMTP login\r\nIf not set, the value of {Mediabeam.ExternalMailService.Types.ExternalMailAccount.Password} will be used",
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "smtpSecurity": {
+                    "format": "int32",
+                    "description": "Specifies the SMTP security type that will be used for SMTP auth",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

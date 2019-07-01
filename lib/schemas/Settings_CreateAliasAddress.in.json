@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode CreateAliasAddress",
+            "type": "object",
+            "properties": {
+                "email": {
+                    "description": "Beinhaltet die Informationen zur Emailadresse",
+                    "type": "object",
+                    "properties": {
+                        "displayName": {
+                            "description": "Anzuzeigender Name",
+                            "type": "string"
+                        },
+                        "address": {
+                            "description": "Emailadresse",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

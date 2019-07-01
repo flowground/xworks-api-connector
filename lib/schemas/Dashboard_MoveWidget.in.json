@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Anfrageobjekt für die Methode MoveWidget",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "format": "int32",
+                    "description": "Die Id des Widgets, welches verschoben werden soll",
+                    "type": "integer"
+                },
+                "type": {
+                    "format": "int32",
+                    "description": "Der Typ des Widgets",
+                    "enum": [
+                        4,
+                        14
+                    ],
+                    "type": "integer"
+                },
+                "folderId": {
+                    "format": "int32",
+                    "description": "Die Id des Zielverzeichnisses, in das das Widget verschoben werden soll",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

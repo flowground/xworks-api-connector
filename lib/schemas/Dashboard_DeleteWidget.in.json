@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "widgetId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "typeId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                4,
+                14
+            ]
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu aktualsierenden erweiterten Einstellungen",
+            "type": "object",
+            "properties": {
+                "propertyList": {
+                    "description": "Auflistung mit den Informationen der zu aktualisierenden erweiternten Einstellungen des Benutzers",
+                    "type": "array",
+                    "items": {
+                        "description": "Stellt Informationen zu erweiterten Einstellungsmöglichkeiten bereit",
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "description": "Name der Eigenschaft",
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "Wert der Eigenschaft",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

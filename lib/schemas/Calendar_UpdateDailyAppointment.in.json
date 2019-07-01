@@ -1,0 +1,124 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode UpdateDailyAppointment zum Ändern eines täglichen Termins",
+            "type": "object",
+            "properties": {
+                "appointment": {
+                    "description": "Informationen, die bei der Änderung eines täglichen Termins benötigt werden",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "description": "Id des zu ändernden Termins",
+                            "type": "integer"
+                        },
+                        "isEveryWeekDay": {
+                            "description": "Flag, ob es an jedem Tag statfinden soll",
+                            "type": "boolean"
+                        },
+                        "iteration": {
+                            "format": "int32",
+                            "description": "Der Termin soll alle x Tage wiederholt werden",
+                            "type": "integer"
+                        },
+                        "useEnd": {
+                            "format": "int32",
+                            "description": "Legt fest, wie ein Serientermin beendet werden soll",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ],
+                            "type": "integer"
+                        },
+                        "maxCount": {
+                            "format": "int32",
+                            "description": "Legt fest, wie oft der Serientermin maximal wiederholt werden soll",
+                            "type": "integer"
+                        },
+                        "recEndTime": {
+                            "format": "date-time",
+                            "description": "Legt das Enddatum fest, zu dem der Serientermin enden soll",
+                            "type": "string"
+                        },
+                        "externalId": {
+                            "description": "Externe Id des Termins",
+                            "type": "string"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem der Termin angelegt werden soll. Hierbei ist die Verzeichnis-Id gleichzeitig die Id des Kalenders",
+                            "type": "integer"
+                        },
+                        "labelId": {
+                            "format": "int32",
+                            "description": "Die Id des Labels, welches für den Termin verwendet werden soll",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10
+                            ],
+                            "type": "integer"
+                        },
+                        "subject": {
+                            "description": "Der Betreff des Termins",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Der Ort, an dem der Termin stattfinden soll",
+                            "type": "string"
+                        },
+                        "description": {
+                            "description": "Die Beschreibung des Termins",
+                            "type": "string"
+                        },
+                        "priority": {
+                            "format": "int32",
+                            "description": "Die Priorität",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ],
+                            "type": "integer"
+                        },
+                        "isAllDay": {
+                            "description": "Flag, ob es sich um einen Ganztagstermin handelt",
+                            "type": "boolean"
+                        },
+                        "startTime": {
+                            "format": "date-time",
+                            "description": "Die Startzeit des Termins",
+                            "type": "string"
+                        },
+                        "endTime": {
+                            "format": "date-time",
+                            "description": "Die Zeit, wann der Termin endet",
+                            "type": "string"
+                        },
+                        "remindTime": {
+                            "format": "int32",
+                            "description": "Zeit in Minuten, zu der vor Beginn des Termins eine Erinnerung erzeugt werden soll",
+                            "type": "integer"
+                        },
+                        "remindAddressId": {
+                            "format": "int32",
+                            "description": "Terminerinnerung über die validierte Adresse",
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Anfrage UpdateMessage",
+            "type": "object",
+            "properties": {
+                "stateList": {
+                    "description": "Auflistung aller Status, welche die Nachrichten bekommen sollen",
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "enum": [
+                            1,
+                            2,
+                            4,
+                            8,
+                            16,
+                            32,
+                            64,
+                            128,
+                            256,
+                            512,
+                            1024,
+                            2048
+                        ],
+                        "type": "integer"
+                    }
+                },
+                "idList": {
+                    "description": "Auflistung aller Nachrichten (Id und TypeId), welche den Status aktualisiert bekommen sollen",
+                    "type": "array",
+                    "items": {
+                        "description": "Beinhaltet die Id und den Typ einer Nachricht",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id der Nachricht",
+                                "type": "integer"
+                            },
+                            "typeId": {
+                                "format": "int32",
+                                "description": "Typ der Nachricht",
+                                "enum": [
+                                    30,
+                                    31,
+                                    32,
+                                    33,
+                                    34,
+                                    35,
+                                    36
+                                ],
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

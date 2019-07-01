@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode RenameFolder",
+            "type": "object",
+            "properties": {
+                "folderId": {
+                    "format": "int32",
+                    "description": "Id des Verzeichnisses, welches umbenannt werden soll",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Neuer Name des Verzeichnisses",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

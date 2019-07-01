@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "providerId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

@@ -1,0 +1,4782 @@
+{
+    "title": "xworks API",
+    "docsUrl": "",
+    "url": "https://dev.api.xworks.net/rest/1",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://dev.api.xworks.net/rest/1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Auth_GetToken": {
+            "main": "./lib/actions/Auth_GetToken.js",
+            "title": "Erzeugt einen Token fur die weitere Verwendung der API",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Auth_GetToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Auth_DeleteToken": {
+            "main": "./lib/actions/Auth_DeleteToken.js",
+            "title": "Entfernt den Token aus dem System (Kommt einer Abmeldung gleich)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Auth_DeleteToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Auth_RefreshToken": {
+            "main": "./lib/actions/Auth_RefreshToken.js",
+            "title": "Verlangert den Token um die angegebenen Tage",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Auth_RefreshToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Auth_GetExternalToken": {
+            "main": "./lib/actions/Auth_GetExternalToken.js",
+            "title": "Erzeugt einen Token fur einen zugehorigen (Team) Account und fur die weitere Verwendung der API",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Auth_GetExternalToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_GetAppointmentList": {
+            "main": "./lib/actions/Calendar_GetAppointmentList.js",
+            "title": "Ermittelt alle Termine des Benutzers aus einem Kalenderverzeichnis. Sollte kein KalenderVerzeichnis angegeben werden, so werden alle Termine zuruckgegeben.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_GetAppointmentList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_GetAppointment": {
+            "main": "./lib/actions/Calendar_GetAppointment.js",
+            "title": "Ermittelt alle Informationen zu einem Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_GetAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_CreateAppointment": {
+            "main": "./lib/actions/Calendar_CreateAppointment.js",
+            "title": "Erstellt einen neuen einfachen Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_CreateAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_CreateDailyAppointment": {
+            "main": "./lib/actions/Calendar_CreateDailyAppointment.js",
+            "title": "Erstellt eine tagliche Terminserie",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_CreateDailyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_CreateWeeklyAppointment": {
+            "main": "./lib/actions/Calendar_CreateWeeklyAppointment.js",
+            "title": "Erstellt eine wochentliche Terminserie",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_CreateWeeklyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_CreateMonthlyAppointment": {
+            "main": "./lib/actions/Calendar_CreateMonthlyAppointment.js",
+            "title": "Erstellt eine monatliche Terminserie",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_CreateMonthlyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_CreateYearlyAppointment": {
+            "main": "./lib/actions/Calendar_CreateYearlyAppointment.js",
+            "title": "Erstellt eine jahrliche Terminserie",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_CreateYearlyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_CreateAppointmentException": {
+            "main": "./lib/actions/Calendar_CreateAppointmentException.js",
+            "title": "Erstellt eine Ausnahme zu einer Terminserie",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_CreateAppointmentException.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_UpdateAppointment": {
+            "main": "./lib/actions/Calendar_UpdateAppointment.js",
+            "title": "Aktualisiert einen einfachen Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_UpdateAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_UpdateDailyAppointment": {
+            "main": "./lib/actions/Calendar_UpdateDailyAppointment.js",
+            "title": "Aktualisiert einen taglichen Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_UpdateDailyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_UpdateWeeklyAppointment": {
+            "main": "./lib/actions/Calendar_UpdateWeeklyAppointment.js",
+            "title": "Aktualisiert einen wochentlichen Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_UpdateWeeklyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_UpdateMonthlyAppointment": {
+            "main": "./lib/actions/Calendar_UpdateMonthlyAppointment.js",
+            "title": "Aktualisiert einen monatlichen Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_UpdateMonthlyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_UpdateYearlyAppointment": {
+            "main": "./lib/actions/Calendar_UpdateYearlyAppointment.js",
+            "title": "Aktualisiert einen jahrlichen Termin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_UpdateYearlyAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Calendar_DeleteAppointmentList": {
+            "main": "./lib/actions/Calendar_DeleteAppointmentList.js",
+            "title": "Loscht mehere Termine",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Calendar_DeleteAppointmentList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetAccountInfo": {
+            "main": "./lib/actions/Cloud_GetAccountInfo.js",
+            "title": "Liefert die Informationen Dateianzahl, Speichergrosse und genutzten Speicher",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetAccountInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetFolderList": {
+            "main": "./lib/actions/Cloud_GetFolderList.js",
+            "title": "Ermittelt die Verzeichnisse des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetFolderList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetFolderInfo": {
+            "main": "./lib/actions/Cloud_GetFolderInfo.js",
+            "title": "Liefert Informationen eines Verzeichnisses",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetFolderInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetFileContentFullText": {
+            "main": "./lib/actions/Cloud_GetFileContentFullText.js",
+            "title": "Liefert die Volltext-Daten einer Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetFileContentFullText.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetEventLog": {
+            "main": "./lib/actions/Cloud_GetEventLog.js",
+            "title": "Liefert das EventLog eines Objektes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetEventLog.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_CreateFolder": {
+            "main": "./lib/actions/Cloud_CreateFolder.js",
+            "title": "Erstellt ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_CreateFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_DeleteFolder": {
+            "main": "./lib/actions/Cloud_DeleteFolder.js",
+            "title": "Loscht ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_DeleteFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_RenameFolder": {
+            "main": "./lib/actions/Cloud_RenameFolder.js",
+            "title": "Bennennt ein Verzeichnis um",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_RenameFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MoveFolder": {
+            "main": "./lib/actions/Cloud_MoveFolder.js",
+            "title": "Verschiebt ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MoveFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_ChangeFolderCategory": {
+            "main": "./lib/actions/Cloud_ChangeFolderCategory.js",
+            "title": "Andert die Kategorie eines Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_ChangeFolderCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MarkFolderAsFavorite": {
+            "main": "./lib/actions/Cloud_MarkFolderAsFavorite.js",
+            "title": "Markiert ein Verzeichnis als Favorit",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MarkFolderAsFavorite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MarkFolderAsAvailableOffline": {
+            "main": "./lib/actions/Cloud_MarkFolderAsAvailableOffline.js",
+            "title": "Offline-Verfugbarkeit andern",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MarkFolderAsAvailableOffline.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MarkFolderAsArchive": {
+            "main": "./lib/actions/Cloud_MarkFolderAsArchive.js",
+            "title": "Archivierung eines Ordners vornehmen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MarkFolderAsArchive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_SearchFileList": {
+            "main": "./lib/actions/Cloud_SearchFileList.js",
+            "title": "Ermittelt alle Dateien des Benutzers, die der Suche entsprechen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_SearchFileList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetFileList": {
+            "main": "./lib/actions/Cloud_GetFileList.js",
+            "title": "Ermittelt alle Dateien des Benutzers aus einem Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetFileList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetModifiedFileList": {
+            "main": "./lib/actions/Cloud_GetModifiedFileList.js",
+            "title": "Ermittelt alle Dateien des Benutzers die sich seit dem ubergebenen Datum geandert haben",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetModifiedFileList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetModifiedObjectList": {
+            "main": "./lib/actions/Cloud_GetModifiedObjectList.js",
+            "title": "Ermittelt alle Dateien des Benutzers die sich seit dem ubergebenen Datum geandert haben",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetModifiedObjectList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetFileInfo": {
+            "main": "./lib/actions/Cloud_GetFileInfo.js",
+            "title": "Liefert Informationen zu einer Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetFileInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_DeleteFile": {
+            "main": "./lib/actions/Cloud_DeleteFile.js",
+            "title": "Loscht eine Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_DeleteFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_RenameFile": {
+            "main": "./lib/actions/Cloud_RenameFile.js",
+            "title": "Bennennt eine Datei um",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_RenameFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MoveFile": {
+            "main": "./lib/actions/Cloud_MoveFile.js",
+            "title": "Verschiebt eine Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MoveFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_RestoreFile": {
+            "main": "./lib/actions/Cloud_RestoreFile.js",
+            "title": "Wiederherstellung einer Datei aus dem Papierkorb in das urprungliche Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_RestoreFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_ChangeFileAttributes": {
+            "main": "./lib/actions/Cloud_ChangeFileAttributes.js",
+            "title": "Anderung von Dateiattributen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_ChangeFileAttributes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MarkFileAsFavorite": {
+            "main": "./lib/actions/Cloud_MarkFileAsFavorite.js",
+            "title": "Markiert ein Datei als Favorit",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MarkFileAsFavorite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_MarkFileAsAvailableOffline": {
+            "main": "./lib/actions/Cloud_MarkFileAsAvailableOffline.js",
+            "title": "Offline-Verfugbarkeit andern",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_MarkFileAsAvailableOffline.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_CopyFile": {
+            "main": "./lib/actions/Cloud_CopyFile.js",
+            "title": "Kopiert eine Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_CopyFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_CopyEmailAttachment": {
+            "main": "./lib/actions/Cloud_CopyEmailAttachment.js",
+            "title": "Kopiert den Anhang einer Nachricht in die Cloud",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_CopyEmailAttachment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetImage": {
+            "main": "./lib/actions/Cloud_GetImage.js",
+            "title": "Liefert das Bild in den angeforderten Abmessungen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetThumbnail": {
+            "main": "./lib/actions/Cloud_GetThumbnail.js",
+            "title": "Liefert das Bild als Thumbnail aus. Wenn keine Weite und Hohe ubergeben wird, dann wird das Thumbnail in 240x240px ausgeliefert.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetThumbnail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetGalleryImage": {
+            "main": "./lib/actions/Cloud_GetGalleryImage.js",
+            "title": "Liefert das Bild als Vorschau mit max. 1280px in Weite oder Hohe aus",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetGalleryImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_CreateFolderShare": {
+            "main": "./lib/actions/Cloud_CreateFolderShare.js",
+            "title": "Erzeugen eines Sharinglink",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_CreateFolderShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_DeleteFolderShare": {
+            "main": "./lib/actions/Cloud_DeleteFolderShare.js",
+            "title": "Loschen einses Sharinglinks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_DeleteFolderShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_CreateFileShare": {
+            "main": "./lib/actions/Cloud_CreateFileShare.js",
+            "title": "Erzeugen eines Sharinglinks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_CreateFileShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_DeleteFileShare": {
+            "main": "./lib/actions/Cloud_DeleteFileShare.js",
+            "title": "Loschen einses Sharinglinks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_DeleteFileShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_GetStreamingUrl": {
+            "main": "./lib/actions/Cloud_GetStreamingUrl.js",
+            "title": "Liefert die Streaming-Url",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_GetStreamingUrl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_Upload": {
+            "main": "./lib/actions/Cloud_Upload.js",
+            "title": "Hochladen einer Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_Upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Cloud_Download": {
+            "main": "./lib/actions/Cloud_Download.js",
+            "title": "Download einer Datei",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Cloud_Download.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_GetContactList": {
+            "main": "./lib/actions/Contact_GetContactList.js",
+            "title": "Ermittelt alle Kontakte des Benutzers aus einem Verzeichnis. Sollte kein Verzeichnis angegeben werden, so werden alle Kontakte zuruckgegeben.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_GetContactList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_GetContact": {
+            "main": "./lib/actions/Contact_GetContact.js",
+            "title": "Ermittelt alle Informationen zu einem Kontakt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_GetContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_CreateContact": {
+            "main": "./lib/actions/Contact_CreateContact.js",
+            "title": "Erstellt einen neuen Kontakt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_CreateContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_DeleteContact": {
+            "main": "./lib/actions/Contact_DeleteContact.js",
+            "title": "Loscht einen Kontakt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_DeleteContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_MoveContact": {
+            "main": "./lib/actions/Contact_MoveContact.js",
+            "title": "Verschiebt Kontakte in ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_MoveContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_UpdateContact": {
+            "main": "./lib/actions/Contact_UpdateContact.js",
+            "title": "Andert einen Kontakt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_UpdateContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_UploadContactImage": {
+            "main": "./lib/actions/Contact_UploadContactImage.js",
+            "title": "Ladt ein Bild zu einem Kontakt hoch",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_UploadContactImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Contact_GetContactImage": {
+            "main": "./lib/actions/Contact_GetContactImage.js",
+            "title": "Ladt das Bild eines Kontaktes herunter, sofern der Kontakt ein Bild besitzt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Contact_GetContactImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetAccountList": {
+            "main": "./lib/actions/Customer_GetAccountList.js",
+            "title": "Ermittelt alle zugehorigen Konten zu dem aktuellem Benutzer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetAccountList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetCustomerDetails": {
+            "main": "./lib/actions/Customer_GetCustomerDetails.js",
+            "title": "Ermittelt alle benotigten Informationen zu dem aktuellem Benutzer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetCustomerDetails.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetModuleIcon": {
+            "main": "./lib/actions/Customer_GetModuleIcon.js",
+            "title": "Ermittelt das Icon zu einem Modul",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetModuleIcon.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetModuleSettings": {
+            "main": "./lib/actions/Customer_GetModuleSettings.js",
+            "title": "Ermittelt die Einstellungen zu einem Modul",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetModuleSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetMailDomainList": {
+            "main": "./lib/actions/Customer_GetMailDomainList.js",
+            "title": "Liefert eine Liste mit allen moglichen Domainnamen fur Emailadressen zuruck",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetMailDomainList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetAvailableCredits": {
+            "main": "./lib/actions/Customer_GetAvailableCredits.js",
+            "title": "Ermittelt das Guthaben des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetAvailableCredits.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetPrimaryContact": {
+            "main": "./lib/actions/Customer_GetPrimaryContact.js",
+            "title": "Ermittelt alle Informationen zu dem primaren Kontakt des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetPrimaryContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_UpdatePrimaryContact": {
+            "main": "./lib/actions/Customer_UpdatePrimaryContact.js",
+            "title": "Andert den primaren Kontakt des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_UpdatePrimaryContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_GetLogbookEntryList": {
+            "main": "./lib/actions/Customer_GetLogbookEntryList.js",
+            "title": "Ermittelt die Logbucheintrage des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_GetLogbookEntryList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_CreateLogbookEntry": {
+            "main": "./lib/actions/Customer_CreateLogbookEntry.js",
+            "title": "Erstellt einen neuen Logbucheintrag",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_CreateLogbookEntry.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_RecoverPassword": {
+            "main": "./lib/actions/Customer_RecoverPassword.js",
+            "title": "Startet die Passwort-Vergessen-Funktionalitat und ermittelt die Sicherheitsfrage",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_RecoverPassword.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Customer_ConfirmPassword": {
+            "main": "./lib/actions/Customer_ConfirmPassword.js",
+            "title": "Uberpruft die angegebene Antwort der Sicherheitsfrage in der Passwort-Vergessen-Funktionalitat",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Customer_ConfirmPassword.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_GetWidgetList": {
+            "main": "./lib/actions/Dashboard_GetWidgetList.js",
+            "title": "Ruft die Widgets des Benutzers ab",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_GetWidgetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_GetStartWidgetList": {
+            "main": "./lib/actions/Dashboard_GetStartWidgetList.js",
+            "title": "Ruft die Widgets fur die Startanzeige des Benutzers ab",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_GetStartWidgetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_GetWidget": {
+            "main": "./lib/actions/Dashboard_GetWidget.js",
+            "title": "Ruft die Informationen zu einem Widget ab",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_GetWidget.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_UpdateWidget": {
+            "main": "./lib/actions/Dashboard_UpdateWidget.js",
+            "title": "Aktualisiert ein Widget",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_UpdateWidget.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_DeleteWidget": {
+            "main": "./lib/actions/Dashboard_DeleteWidget.js",
+            "title": "Loscht ein Widget",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_DeleteWidget.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_DeleteWidgetList": {
+            "main": "./lib/actions/Dashboard_DeleteWidgetList.js",
+            "title": "Loscht die angegebene Widgetliste",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_DeleteWidgetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_CreateWidget": {
+            "main": "./lib/actions/Dashboard_CreateWidget.js",
+            "title": "Erstellt ein Widgets",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_CreateWidget.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_MoveWidget": {
+            "main": "./lib/actions/Dashboard_MoveWidget.js",
+            "title": "Verschiebt ein Widget in ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_MoveWidget.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_MoveWidgetList": {
+            "main": "./lib/actions/Dashboard_MoveWidgetList.js",
+            "title": "Verschiebt eine Liste von Widgets in ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_MoveWidgetList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Dashboard_MarkAsFavorite": {
+            "main": "./lib/actions/Dashboard_MarkAsFavorite.js",
+            "title": "Markiert eine Liste von Widgets als Favoriten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Dashboard_MarkAsFavorite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directory_GetFolderList": {
+            "main": "./lib/actions/Directory_GetFolderList.js",
+            "title": "Ermittelt die Verzeichnisse des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directory_GetFolderList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directory_CreateFolder": {
+            "main": "./lib/actions/Directory_CreateFolder.js",
+            "title": "Erstellt ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directory_CreateFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directory_DeleteFolder": {
+            "main": "./lib/actions/Directory_DeleteFolder.js",
+            "title": "Loscht ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directory_DeleteFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directory_RenameFolder": {
+            "main": "./lib/actions/Directory_RenameFolder.js",
+            "title": "Bennennt ein Verzeichnis um",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directory_RenameFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directory_MoveFolder": {
+            "main": "./lib/actions/Directory_MoveFolder.js",
+            "title": "Verschiebt ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directory_MoveFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Directory_GetFolderStatus": {
+            "main": "./lib/actions/Directory_GetFolderStatus.js",
+            "title": "Ermittelt die Status von Verzeichnissen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Directory_GetFolderStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetAccountList": {
+            "main": "./lib/actions/ExternalMail_GetAccountList.js",
+            "title": "Ermittelt alle externen IMAP-Konten des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetAccountList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_AddAccount": {
+            "main": "./lib/actions/ExternalMail_AddAccount.js",
+            "title": "Fugt ein neues externes Konto hinzu",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_AddAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_UpdateAccount": {
+            "main": "./lib/actions/ExternalMail_UpdateAccount.js",
+            "title": "Aktualisiert ein externes Konto",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_UpdateAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_DeleteAccount": {
+            "main": "./lib/actions/ExternalMail_DeleteAccount.js",
+            "title": "Loscht ein extenes Konto",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_DeleteAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_ValidateAccount": {
+            "main": "./lib/actions/ExternalMail_ValidateAccount.js",
+            "title": "Validiert ein externes Konto",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_ValidateAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetFolderList": {
+            "main": "./lib/actions/ExternalMail_GetFolderList.js",
+            "title": "Ermittelt die IMAP-Verzeichnisse des Benutzers",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header muss ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetFolderList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_CreateFolder": {
+            "main": "./lib/actions/ExternalMail_CreateFolder.js",
+            "title": "Erstellt ein Verzeichnis",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header muss ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_CreateFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_RenameFolder": {
+            "main": "./lib/actions/ExternalMail_RenameFolder.js",
+            "title": "Bennennt ein Verzeichnis um",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header muss ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_RenameFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_MoveFolder": {
+            "main": "./lib/actions/ExternalMail_MoveFolder.js",
+            "title": "Verschiebt ein Verzeichnis",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header muss ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_MoveFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_DeleteFolder": {
+            "main": "./lib/actions/ExternalMail_DeleteFolder.js",
+            "title": "Loscht ein Verzeichnis",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header muss ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_DeleteFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetMessageList": {
+            "main": "./lib/actions/ExternalMail_GetMessageList.js",
+            "title": "Ermittelt die Nachrichten des Benutzers",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetMessageList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetMessage": {
+            "main": "./lib/actions/ExternalMail_GetMessage.js",
+            "title": "Liefert die vollstandigen Daten einer Nachricht",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetMessagePreview": {
+            "main": "./lib/actions/ExternalMail_GetMessagePreview.js",
+            "title": "Ermittelt eine Vorschau des Textes einer Nachricht",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetMessagePreview.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetMessageHeader": {
+            "main": "./lib/actions/ExternalMail_GetMessageHeader.js",
+            "title": "Ermittelt den Header einer Nachricht",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetMessageHeader.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_CreateMessage": {
+            "main": "./lib/actions/ExternalMail_CreateMessage.js",
+            "title": "Erzeugt eine Nachricht",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_CreateMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_SaveAsDraft": {
+            "main": "./lib/actions/ExternalMail_SaveAsDraft.js",
+            "title": "Speichert eine Nachricht als Entwurf",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_SaveAsDraft.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_DeleteMessage": {
+            "main": "./lib/actions/ExternalMail_DeleteMessage.js",
+            "title": "Loscht Nachrichten",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_DeleteMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_MoveMessage": {
+            "main": "./lib/actions/ExternalMail_MoveMessage.js",
+            "title": "Verschiebt Nachrichten in ein Verzeichnis",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_MoveMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_UpdateMessage": {
+            "main": "./lib/actions/ExternalMail_UpdateMessage.js",
+            "title": "Aktualisiert den Status von Nachrichten",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_UpdateMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_GetAttachment": {
+            "main": "./lib/actions/ExternalMail_GetAttachment.js",
+            "title": "Ermittelt den Anhang einer Nachricht",
+            "description": "Der <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_GetAttachment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ExternalMail_SearchMessageList": {
+            "main": "./lib/actions/ExternalMail_SearchMessageList.js",
+            "title": "Sucht nach Nachrichten",
+            "description": "Liefert immer eine leere Liste, da die Suche uber IMAP noch nicht unterstutzt wird.\r\nDer <code>EMS-ACCOUNT-ID</code>-Header und der <code>EMS-FOLDER-ID-Header</code> mussen ubermittelt werden",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ExternalMail_SearchMessageList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorite_GetBookmarkList": {
+            "main": "./lib/actions/Favorite_GetBookmarkList.js",
+            "title": "Ermittelt alle Lesezeichen des Benutzers aus einem Verzeichnis. Sollte kein Verzeichnis angegeben werden, so werden alle Lesezeichen zuruckgegeben.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorite_GetBookmarkList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorite_GetBookmark": {
+            "main": "./lib/actions/Favorite_GetBookmark.js",
+            "title": "Ermittelt alle Informationen zu einem Lesezeichen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorite_GetBookmark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorite_CreateBookmark": {
+            "main": "./lib/actions/Favorite_CreateBookmark.js",
+            "title": "Erstellt einen neues Lesezeichen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorite_CreateBookmark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorite_DeleteBookmark": {
+            "main": "./lib/actions/Favorite_DeleteBookmark.js",
+            "title": "Loscht Lesezeichen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorite_DeleteBookmark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorite_MoveBookmark": {
+            "main": "./lib/actions/Favorite_MoveBookmark.js",
+            "title": "Verschiebt Lesezeichen in ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorite_MoveBookmark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorite_UpdateBookmark": {
+            "main": "./lib/actions/Favorite_UpdateBookmark.js",
+            "title": "Andert ein Lesezeichen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorite_UpdateBookmark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Legal_Imprint": {
+            "main": "./lib/actions/Legal_Imprint.js",
+            "title": "Liefert das Impressum des angegebenen Providers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Legal_Imprint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Legal_Terms": {
+            "main": "./lib/actions/Legal_Terms.js",
+            "title": "Liefert die AGB des angegebenen Providers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Legal_Terms.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Legal_Privacy": {
+            "main": "./lib/actions/Legal_Privacy.js",
+            "title": "Liefert die Datenschutzerklarung des angegebenen Providers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Legal_Privacy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Legal_License": {
+            "main": "./lib/actions/Legal_License.js",
+            "title": "Liefert die Lizenzinformationen des angegebenen Providers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Legal_License.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_GetMessageList": {
+            "main": "./lib/actions/Mailbox_GetMessageList.js",
+            "title": "Ermittelt die Nachrichten des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_GetMessageList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_GetMessage": {
+            "main": "./lib/actions/Mailbox_GetMessage.js",
+            "title": "Liefert die vollstandigen Daten einer Nachricht",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_GetMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_GetMessagePreview": {
+            "main": "./lib/actions/Mailbox_GetMessagePreview.js",
+            "title": "Ermittelt eine Vorschau des Textes einer Nachricht",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_GetMessagePreview.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_GetMessageHeader": {
+            "main": "./lib/actions/Mailbox_GetMessageHeader.js",
+            "title": "Ermittelt den Header einer Nachricht",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_GetMessageHeader.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_CreateMessage": {
+            "main": "./lib/actions/Mailbox_CreateMessage.js",
+            "title": "Erzeugt eine Nachricht",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_CreateMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_SaveAsDraft": {
+            "main": "./lib/actions/Mailbox_SaveAsDraft.js",
+            "title": "Speichert eine Nachricht als Entwurf",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_SaveAsDraft.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_CreateShortMessage": {
+            "main": "./lib/actions/Mailbox_CreateShortMessage.js",
+            "title": "Erzeugt eine SMS",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_CreateShortMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_CreateVoiceMessage": {
+            "main": "./lib/actions/Mailbox_CreateVoiceMessage.js",
+            "title": "Erzeugt eine VoiceMail",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_CreateVoiceMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_CreateMultimediaMessage": {
+            "main": "./lib/actions/Mailbox_CreateMultimediaMessage.js",
+            "title": "Erzeugt eine MMS",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_CreateMultimediaMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_CreateFaxMessage": {
+            "main": "./lib/actions/Mailbox_CreateFaxMessage.js",
+            "title": "Erzeugt ein Fax",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_CreateFaxMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_QuickReply": {
+            "main": "./lib/actions/Mailbox_QuickReply.js",
+            "title": "Erstellt eine Expressantwort auf eine vorher empfangene Email",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_QuickReply.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_DeleteMessage": {
+            "main": "./lib/actions/Mailbox_DeleteMessage.js",
+            "title": "Loscht Nachrichten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_DeleteMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_MoveMessage": {
+            "main": "./lib/actions/Mailbox_MoveMessage.js",
+            "title": "Verschiebt Nachrichten in ein Verzeichnis",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_MoveMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_UpdateMessage": {
+            "main": "./lib/actions/Mailbox_UpdateMessage.js",
+            "title": "Aktualisiert den Status von Nachrichten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_UpdateMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_GetAttachment": {
+            "main": "./lib/actions/Mailbox_GetAttachment.js",
+            "title": "Ermittelt den Anhang einer Nachricht",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_GetAttachment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Mailbox_SearchMessageList": {
+            "main": "./lib/actions/Mailbox_SearchMessageList.js",
+            "title": "Sucht nach Nachrichten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Mailbox_SearchMessageList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Notify_Register": {
+            "main": "./lib/actions/Notify_Register.js",
+            "title": "Register",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Notify_Register.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Notify_Unregister": {
+            "main": "./lib/actions/Notify_Unregister.js",
+            "title": "Unregister",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Notify_Unregister.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Notify_Update": {
+            "main": "./lib/actions/Notify_Update.js",
+            "title": "Update",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Notify_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Poi_GetFolder": {
+            "main": "./lib/actions/Poi_GetFolder.js",
+            "title": "Poi_GetFolder",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Poi_GetFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Poi_GetContent": {
+            "main": "./lib/actions/Poi_GetContent.js",
+            "title": "Poi_GetContent",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Poi_GetContent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Poi_GetImage": {
+            "main": "./lib/actions/Poi_GetImage.js",
+            "title": "Poi_GetImage",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Poi_GetImage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetEmailAddressList": {
+            "main": "./lib/actions/Settings_GetEmailAddressList.js",
+            "title": "Ermittelt alle Emailadressen des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetEmailAddressList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateAliasAddress": {
+            "main": "./lib/actions/Settings_CreateAliasAddress.js",
+            "title": "Legt eine neue Alias-Emailadresse an",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateAliasAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateOneWayAddress": {
+            "main": "./lib/actions/Settings_CreateOneWayAddress.js",
+            "title": "Legt eine neue Emailadresse an, welche nur eine bestimmte Lebensdauer aufweist",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateOneWayAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeleteEmailAddressList": {
+            "main": "./lib/actions/Settings_DeleteEmailAddressList.js",
+            "title": "Loscht Emailaddressen des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeleteEmailAddressList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetSubAccountList": {
+            "main": "./lib/actions/Settings_GetSubAccountList.js",
+            "title": "Ermittelt alle Mailboxen (SubAccounts), die dieser Account verwaltet.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetSubAccountList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateSubAccount": {
+            "main": "./lib/actions/Settings_CreateSubAccount.js",
+            "title": "Erstellt ein neues Postfach (SubAccount)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateSubAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeleteSubAccount": {
+            "main": "./lib/actions/Settings_DeleteSubAccount.js",
+            "title": "Loscht ein Postfach (SubAccount)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeleteSubAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetAvailablePhoneSettingsNumbers": {
+            "main": "./lib/actions/Settings_GetAvailablePhoneSettingsNumbers.js",
+            "title": "Gibt eine Liste mit moglichen Nummern fur die Telefon- und Faxeinstellungen zuruck",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetAvailablePhoneSettingsNumbers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetPhoneSettingsList": {
+            "main": "./lib/actions/Settings_GetPhoneSettingsList.js",
+            "title": "Ermittelt alle Telefon- und Faxeinstellungen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetPhoneSettingsList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreatePhoneSettings": {
+            "main": "./lib/actions/Settings_CreatePhoneSettings.js",
+            "title": "Erstellt eine neue Telefon- bzw. Faxeinstellung",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreatePhoneSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeletePhoneSettings": {
+            "main": "./lib/actions/Settings_DeletePhoneSettings.js",
+            "title": "Loscht Telefon- bzw. Faxeinstellungen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeletePhoneSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdatePhoneSettings": {
+            "main": "./lib/actions/Settings_UpdatePhoneSettings.js",
+            "title": "Aktualisiert Telefon- bzw. Faxeinstellungen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdatePhoneSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetAuthenticatedAddressList": {
+            "main": "./lib/actions/Settings_GetAuthenticatedAddressList.js",
+            "title": "Ermittelt alle authentifizierten Adressen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetAuthenticatedAddressList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_ValidateAuthenticatedAddress": {
+            "main": "./lib/actions/Settings_ValidateAuthenticatedAddress.js",
+            "title": "Validiert (pruft) eine authentifizierte Adresse",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_ValidateAuthenticatedAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateAuthenticatedAddress": {
+            "main": "./lib/actions/Settings_CreateAuthenticatedAddress.js",
+            "title": "Erstellt eine zu authentifizierende Adresse",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateAuthenticatedAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeleteAuthenticatedAddress": {
+            "main": "./lib/actions/Settings_DeleteAuthenticatedAddress.js",
+            "title": "Loscht eine authentifizierte Adresse",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeleteAuthenticatedAddress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetPop3AccountList": {
+            "main": "./lib/actions/Settings_GetPop3AccountList.js",
+            "title": "Ermittelt alle POP3-Sammeldienste des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetPop3AccountList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreatePop3Account": {
+            "main": "./lib/actions/Settings_CreatePop3Account.js",
+            "title": "Erstellt einen neuen POP3-Sammeldienst",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreatePop3Account.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdatePop3Account": {
+            "main": "./lib/actions/Settings_UpdatePop3Account.js",
+            "title": "Aktualisiert einen POP3-Sammeldienst",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdatePop3Account.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeletePop3AccountList": {
+            "main": "./lib/actions/Settings_DeletePop3AccountList.js",
+            "title": "Loscht eine Reihe von POP3-Sammeldiensten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeletePop3AccountList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetSignatureList": {
+            "main": "./lib/actions/Settings_GetSignatureList.js",
+            "title": "Ermittelt alle Signaturen des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetSignatureList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateSignature": {
+            "main": "./lib/actions/Settings_CreateSignature.js",
+            "title": "Erstellt eine neue Signatur",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateSignature": {
+            "main": "./lib/actions/Settings_UpdateSignature.js",
+            "title": "Aktualisiert eine Signatur",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeleteSignatureList": {
+            "main": "./lib/actions/Settings_DeleteSignatureList.js",
+            "title": "Loscht eine Reihe von Signaturen",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeleteSignatureList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetSettings": {
+            "main": "./lib/actions/Settings_GetSettings.js",
+            "title": "Ermittelt die Einstellungen des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateSettings": {
+            "main": "./lib/actions/Settings_UpdateSettings.js",
+            "title": "Aktualisiert die Einstellungen des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateSettingsPropertyList": {
+            "main": "./lib/actions/Settings_UpdateSettingsPropertyList.js",
+            "title": "Aktualisiert die erweiterten Einstellungen des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateSettingsPropertyList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_SecurePasswordUpdate": {
+            "main": "./lib/actions/Settings_SecurePasswordUpdate.js",
+            "title": "Aktualisiert das Sicherheitspasswort des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_SecurePasswordUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_SecurePinUpdate": {
+            "main": "./lib/actions/Settings_SecurePinUpdate.js",
+            "title": "Aktualisiert den Sicherheits-PIN des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_SecurePinUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_SecureQuestionUpdate": {
+            "main": "./lib/actions/Settings_SecureQuestionUpdate.js",
+            "title": "Aktualisiert die Sicherheitsfrage des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_SecureQuestionUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetMessageRuleList": {
+            "main": "./lib/actions/Settings_GetMessageRuleList.js",
+            "title": "Ermittelt die Nachrichtenregeln des Benutzers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetMessageRuleList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_GetMessageRule": {
+            "main": "./lib/actions/Settings_GetMessageRule.js",
+            "title": "Ermittelt eine Nachrichtenregel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_GetMessageRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateMessageRule": {
+            "main": "./lib/actions/Settings_CreateMessageRule.js",
+            "title": "Erstellt eine neue Nachrichtenregel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateMessageRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateMessageRuleFolder": {
+            "main": "./lib/actions/Settings_CreateMessageRuleFolder.js",
+            "title": "Erstellt eine neue Nachrichtenregel, die Nachrichten in ein Verzeichnis verschiebt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateMessageRuleFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateMessageRuleForward": {
+            "main": "./lib/actions/Settings_CreateMessageRuleForward.js",
+            "title": "Erstellt eine neue Nachrichtenregel, die Nachrichten weiterleitet",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateMessageRuleForward.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateMessageRuleNotification": {
+            "main": "./lib/actions/Settings_CreateMessageRuleNotification.js",
+            "title": "Erstellt eine neue Nachrichtenregel, die Benachrichtigungen uber den Erhalt von Nachrichten versendet",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateMessageRuleNotification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateMessageRule": {
+            "main": "./lib/actions/Settings_UpdateMessageRule.js",
+            "title": "Aktualisiert eine Nachrichtenregel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateMessageRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateMessageRuleFolder": {
+            "main": "./lib/actions/Settings_UpdateMessageRuleFolder.js",
+            "title": "Aktualisiert eine Nachrichtenregel, die Nachrichten in ein Verzeichnis verschiebt",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateMessageRuleFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateMessageRuleForward": {
+            "main": "./lib/actions/Settings_UpdateMessageRuleForward.js",
+            "title": "Aktualisiert eine Nachrichtenregel, die Nachrichten weiterleitet",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateMessageRuleForward.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateMessageRuleNotification": {
+            "main": "./lib/actions/Settings_UpdateMessageRuleNotification.js",
+            "title": "Aktualisiert eine Nachrichtenregel, die Benachrichtigungen uber den Erhalt von Nachrichten versendet",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateMessageRuleNotification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeleteMessageRuleList": {
+            "main": "./lib/actions/Settings_DeleteMessageRuleList.js",
+            "title": "Loscht eine Reihe von Nachrichtenregeln",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeleteMessageRuleList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_ActivateMessageRule": {
+            "main": "./lib/actions/Settings_ActivateMessageRule.js",
+            "title": "Aktiviert eine Nacrichtenregel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_ActivateMessageRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_DeactivateMessageRule": {
+            "main": "./lib/actions/Settings_DeactivateMessageRule.js",
+            "title": "Deaktiviert eine Nachrichtenregel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_DeactivateMessageRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_CreateSpamRule": {
+            "main": "./lib/actions/Settings_CreateSpamRule.js",
+            "title": "Erstellt eine neue Regel fur Spamnachrichten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_CreateSpamRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_UpdateSpamRule": {
+            "main": "./lib/actions/Settings_UpdateSpamRule.js",
+            "title": "Erstellt eine Regel fur Spamnachrichten",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_UpdateSpamRule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Version_GetVersion": {
+            "main": "./lib/actions/Version_GetVersion.js",
+            "title": "Ermittelt die aktuelle API-Version. Pruft dabei, ob die angegebene API-Version noch verwendet werden kann",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Version_GetVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Version_CheckClientVersion": {
+            "main": "./lib/actions/Version_CheckClientVersion.js",
+            "title": "Uberpruft eine der API bekannte Client-Version auf Aktualitat",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Version_CheckClientVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

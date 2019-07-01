@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit dem Filter, wie die Nachrichtenregeln gefilter werden sollen und den Informationen (Id, Prüfsumme) der schon am Client bekannten Nachrichtenregeln",
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "description": "Informationen, wie die Nachrichtenregeln gefiltert werden sollen",
+                    "type": "object",
+                    "properties": {
+                        "ruleType": {
+                            "format": "int32",
+                            "description": "Typ der Nachrichtenregel, nach der gefiltert werden soll",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ],
+                            "type": "integer"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Wenn Nachrichten in ein Verzeichnis verschoben werden sollten, kann hier das Zielverzeichnis angegeben werden (-1 = nicht gesetzt)",
+                            "type": "integer"
+                        },
+                        "targetType": {
+                            "format": "int32",
+                            "description": "Bei Weiterleitungen kann hier der Typ der Zieladresse angegeben werden",
+                            "enum": [
+                                0,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7
+                            ],
+                            "type": "integer"
+                        },
+                        "terminated": {
+                            "format": "int32",
+                            "description": "Flag, ob nur die Nachrichtenregel ausgegeben werden sollen, bei denen keine weitere Regeln angewendet werden sollen",
+                            "enum": [
+                                0,
+                                1,
+                                -1
+                            ],
+                            "type": "integer"
+                        },
+                        "visible": {
+                            "format": "int32",
+                            "description": "Flag, ob nur die sichtbaren Regeln ausgegeben werden sollen",
+                            "enum": [
+                                0,
+                                1,
+                                -1
+                            ],
+                            "type": "integer"
+                        },
+                        "isForward": {
+                            "format": "int32",
+                            "description": "Flag, ob nur die Nachrichtenregel ausgegeben werden sollen, bei denen eine Weiterleitung eingerichtet wurde",
+                            "enum": [
+                                0,
+                                1,
+                                -1
+                            ],
+                            "type": "integer"
+                        },
+                        "isNotification": {
+                            "format": "int32",
+                            "description": "Flag, ob nur die Nachrichtenregel ausgegeben werden sollen, bei denen eine Benachrichtigung eingerichtet wurde",
+                            "enum": [
+                                0,
+                                1,
+                                -1
+                            ],
+                            "type": "integer"
+                        },
+                        "isFolder": {
+                            "format": "int32",
+                            "description": "Flag, ob nur die Nachrichtenregel ausgegeben werden sollen, bei denen die Nachrichten in ein Verzeichnis verschoben werden solleneine Weiterleitung eingerichtet wurde",
+                            "enum": [
+                                0,
+                                1,
+                                -1
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                },
+                "idList": {
+                    "description": "Auflistung der benötigten Werte eine Abfrage",
+                    "type": "array",
+                    "items": {
+                        "description": "Stellt Basisinformationen für diverse Anfragen bereit",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id eines Objektes",
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "description": "Prüfsumme eines Objektes. Dies wird nicht bei jeder Anfrage benötigt",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "clientApiVersion": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen des zu erstellenden Logbucheintrages",
+            "type": "object",
+            "properties": {
+                "entry": {
+                    "description": "Informationen des zu erstellenden Logbucheintrages",
+                    "type": "object",
+                    "properties": {
+                        "category": {
+                            "format": "int32",
+                            "description": "Kategorie des Eintrages",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                            ],
+                            "type": "integer"
+                        },
+                        "priority": {
+                            "format": "int32",
+                            "description": "Prioriät des Eintrages",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3
+                            ],
+                            "type": "integer"
+                        },
+                        "value": {
+                            "format": "int32",
+                            "description": "Wert des Eintrages",
+                            "type": "integer"
+                        },
+                        "text": {
+                            "description": "Eigentlicher Text des Eintrages",
+                            "type": "string"
+                        },
+                        "printable": {
+                            "description": "Flag, ob der Eintrag bei einem Ausdruck erscheinen soll",
+                            "type": "boolean"
+                        },
+                        "entryType": {
+                            "format": "int32",
+                            "description": "Typ des Eintrages",
+                            "enum": [
+                                0,
+                                200,
+                                201,
+                                210,
+                                211,
+                                212,
+                                213,
+                                240,
+                                241,
+                                242,
+                                243,
+                                404,
+                                600,
+                                601,
+                                602,
+                                603,
+                                604,
+                                610,
+                                611,
+                                612,
+                                650,
+                                710
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

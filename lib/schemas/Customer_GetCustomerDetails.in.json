@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "filter": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                1,
+                2,
+                4,
+                8,
+                16,
+                32,
+                64,
+                127
+            ]
+        },
+        "clientId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Ids der zu löschenden POP3-Sammeldienste",
+            "type": "object",
+            "properties": {
+                "idList": {
+                    "description": "Auflistung der Ids der zu löschenden POP3-Sammeldienste",
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

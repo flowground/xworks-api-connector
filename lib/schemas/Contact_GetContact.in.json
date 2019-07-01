@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "contactId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "imageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1,
+                2
+            ]
+        }
+    }
+}

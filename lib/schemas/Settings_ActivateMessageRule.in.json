@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "ruleId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

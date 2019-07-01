@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "integer"
+                },
+                "uid": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "size": {
+                    "format": "int32",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "integer"
+                },
+                "width": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "height": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "idList": {
+                    "description": "Auflistung der benötigten Werte eine Abfrage",
+                    "type": "array",
+                    "items": {
+                        "description": "Stellt Basisinformationen für diverse Anfragen bereit",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "format": "int32",
+                                "description": "Id eines Objektes",
+                                "type": "integer"
+                            },
+                            "checksum": {
+                                "description": "Prüfsumme eines Objektes. Dies wird nicht bei jeder Anfrage benötigt",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "validDays": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "info": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

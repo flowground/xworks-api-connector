@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt für die Methode UpdateWidget",
+            "type": "object",
+            "properties": {
+                "widget": {
+                    "description": "Alle Informationen zu dem zu aktualisierendem Widget",
+                    "type": "object",
+                    "properties": {
+                        "body": {
+                            "description": "Der Inhalt des Widgets als Base64-Zeichenfolge",
+                            "type": "string"
+                        },
+                        "uid": {
+                            "description": "UID, Eindeutige Guid des Widgets",
+                            "type": "string"
+                        },
+                        "folderId": {
+                            "format": "int32",
+                            "description": "Id des Verzeichnisses, in dem sich das Widget befindet",
+                            "type": "integer"
+                        },
+                        "modified": {
+                            "description": "Datum, wann das Widget geändert wurde",
+                            "type": "string"
+                        },
+                        "isFavorite": {
+                            "description": "Flag, ob das Widget als Favorite markiert wurde",
+                            "type": "boolean"
+                        },
+                        "subject": {
+                            "description": "Titel des Widgets",
+                            "type": "string"
+                        },
+                        "checksum": {
+                            "description": "Prüfsumme des Widgets",
+                            "type": "string"
+                        },
+                        "id": {
+                            "format": "int32",
+                            "description": "Id des Widgets",
+                            "type": "integer"
+                        },
+                        "type": {
+                            "format": "int32",
+                            "description": "Typ des Widgets",
+                            "enum": [
+                                4,
+                                14
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

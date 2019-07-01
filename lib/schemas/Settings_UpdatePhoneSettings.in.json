@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen der zu aktualisierenden Telefon- oder Faxeinstellung mittels der Methode UpdatePhoneSettings",
+            "type": "object",
+            "properties": {
+                "phoneSettings": {
+                    "description": "Informationen der zu erstellenden Telefon- oder Faxeinstellung",
+                    "type": "object",
+                    "properties": {
+                        "faxOnly": {
+                            "description": "Flag, ob nur Faxempfang aktiviert sein soll",
+                            "type": "boolean"
+                        },
+                        "playText": {
+                            "description": "Flag, ob die Textansage (TRUE) oder die Sprachansage (FALSE) aktiviert wurde",
+                            "type": "boolean"
+                        },
+                        "greetingText": {
+                            "description": "Der Text für die Textansage",
+                            "type": "string"
+                        },
+                        "number": {
+                            "description": "Die persönliche Telefonnummer",
+                            "type": "string"
+                        },
+                        "prefix": {
+                            "description": "Der Prefix für die Telefonnummer",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

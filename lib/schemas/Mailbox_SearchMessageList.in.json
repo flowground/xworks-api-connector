@@ -1,0 +1,113 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "POST-Datenobjekt mit den Informationen für die Suche von Nachrichten",
+            "type": "object",
+            "properties": {
+                "search": {
+                    "description": "Information, nach welchem Kriterium gesucht werden soll",
+                    "type": "object",
+                    "properties": {
+                        "groupOp": {
+                            "format": "int32",
+                            "description": "Legt fest, wie die einzelnen Suchregeln verknüpft werden sollen",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        },
+                        "rules": {
+                            "description": "Auflistung der einzelnen Suchregeln",
+                            "type": "array",
+                            "items": {
+                                "description": "Beschreibt eine Regel bei der Suche (zum Beispiel bei Nachrichten)",
+                                "type": "object",
+                                "properties": {
+                                    "field": {
+                                        "description": "Legt die Eigenschaft fest, in der gesucht werden soll",
+                                        "type": "string"
+                                    },
+                                    "op": {
+                                        "format": "int32",
+                                        "description": "Legt die Operation fest, wie der Wert im angegebenen Feld verglichen werden soll",
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6,
+                                            7,
+                                            8,
+                                            9
+                                        ],
+                                        "type": "integer"
+                                    },
+                                    "data": {
+                                        "description": "Legt den Wert fest, welcher im angegebenen Feld gesucht werden soll",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "folderId": {
+                    "format": "int32",
+                    "description": "Legt fest, in welchem Verzeichnis gesucht werden soll (0 = alle Verzeichnisse im Posteingang)",
+                    "type": "integer"
+                },
+                "limit": {
+                    "description": "Einschränkung in der Anzahl der Nachrichten für das Antwortobjekt",
+                    "type": "object",
+                    "properties": {
+                        "offset": {
+                            "format": "int32",
+                            "description": "Startindex, ab dem die Nachrichten ausgegeben werden sollen",
+                            "type": "integer"
+                        },
+                        "count": {
+                            "format": "int32",
+                            "description": "Die Anzahl der auszugebenen Nachrichten",
+                            "type": "integer"
+                        },
+                        "range": {
+                            "description": "Zeitliche Eingrenzung bei der Ermittlung der Nachrichten",
+                            "type": "object",
+                            "properties": {
+                                "num": {
+                                    "format": "int32",
+                                    "description": "Nummerischer Wert, welche die Zeitangabe festlegt",
+                                    "type": "integer"
+                                },
+                                "type": {
+                                    "format": "int32",
+                                    "description": "Legt fest, in welchem Zeitabschnitt der nummerische Wert interpretiert werden soll",
+                                    "enum": [
+                                        0,
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "sort": {
+                            "format": "int32",
+                            "description": "Sortierreihenfolge der Nachrichten",
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
